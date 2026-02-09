@@ -557,7 +557,7 @@
             const average = sum / bufferLength;
 
             // Increase blow power based on volume
-            if (average > 30) {
+            if (average > 100) {
                 blowPower = Math.min(100, blowPower + (average / 15));
                 blowDuration += 0.1;
             }
@@ -625,8 +625,8 @@
 
             // Increase probability of higher amounts based on blow power
             const powerBonus = blowPower / 20; // Max 5x bonus at 100% power
-            amounts[3].weight += powerBonus * 2; // 100k
-            amounts[4].weight += powerBonus * 3; // 200k
+            amounts[3].weight += powerBonus * 1; // 100k
+            amounts[4].weight += powerBonus * 0.5; // 200k
 
             // Random selection based on weights
             const totalWeight = amounts.reduce((sum, item) => sum + item.weight, 0);
