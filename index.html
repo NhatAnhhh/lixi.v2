@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lì Xì Tết 2026 - Bốc Quẻ Kinh Dịch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff0000 0%, #ff6b6b 50%, #ffd700 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated background decorations */
+        .background-decor {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .peach-blossom {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, #ffb3d9 0%, #ff69b4 100%);
+            border-radius: 50% 50% 0 50%;
+            animation: float 15s infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .firecracker {
+            position: absolute;
+            font-size: 30px;
+            animation: spin 20s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg) translateX(150px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeInDown 1s;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #ffd700;
+            font-size: 2.5em;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: white;
+            font-size: 1.2em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .input-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+            width: 100%;
+            animation: fadeIn 1s 0.3s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: #ff0000;
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ff6b6b;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #ffd700;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .envelope-container {
+            position: relative;
+            width: 280px;
+            height: 180px;
+            margin: 30px auto;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .envelope {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff0000 0%, #ff4444 100%);
+            border-radius: 10px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+
+        .envelope:hover {
+            transform: scale(1.05);
+        }
+
+        .envelope-flap {
+            position: absolute;
+            top: -1px;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff0000 100%);
+            clip-path: polygon(0 0, 50% 100%, 100% 0);
+            transform-origin: top center;
+            transition: transform 0.5s;
+        }
+
+        .envelope.opening .envelope-flap {
+            transform: rotateX(180deg);
+        }
+
+        .envelope-decoration {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ffd700;
+            font-size: 2em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .mic-section {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            width: 100%;
+        }
+
+        .mic-button {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff0000, #ff6b6b);
+            border: none;
+            color: white;
+            font-size: 2.5em;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            margin: 10px auto;
+            display: block;
+        }
+
+        .mic-button:hover {
+            transform: scale(1.1);
+        }
+
+        .mic-button.active {
+            animation: pulse 1s infinite;
+            background: linear-gradient(135deg, #00ff00, #00aa00);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .blow-meter {
+            width: 100%;
+            height: 30px;
+            background: #eee;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+
+        .blow-level {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #ffd700);
+            width: 0%;
+            transition: width 0.1s;
+        }
+
+        .result-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-top: 30px;
+            width: 100%;
+            animation: slideUp 0.5s;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .money-amount {
+            font-size: 3em;
+            color: #ff0000;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            animation: glow 1.5s infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+            50% { text-shadow: 0 0 20px #ffd700, 2px 2px 4px rgba(0,0,0,0.2); }
+        }
+
+        .hexagram-section {
+            margin-top: 20px;
+            padding: 20px;
+            background: #fff9e6;
+            border-radius: 15px;
+            border: 2px solid #ffd700;
+        }
+
+        .hexagram-name {
+            font-size: 1.8em;
+            color: #ff0000;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .hexagram-lines {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .hexagram-line {
+            width: 150px;
+            height: 8px;
+            background: #000;
+            margin: 4px 0;
+            border-radius: 4px;
+        }
+
+        .hexagram-line.broken {
+            background: linear-gradient(90deg, #000 0%, #000 45%, transparent 45%, transparent 55%, #000 55%, #000 100%);
+        }
+
+        .hexagram-meaning {
+            color: #333;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .reset-button {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #ff0000;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+
+        .reset-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(0,0,0,0.3);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #ffd700;
+            position: absolute;
+            animation: confetti-fall 3s linear;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-decor">
+        <div class="peach-blossom" style="top: 10%; left: 10%;"></div>
+        <div class="peach-blossom" style="top: 20%; right: 15%; animation-delay: 2s;"></div>
+        <div class="peach-blossom" style="bottom: 15%; left: 20%; animation-delay: 4s;"></div>
+        <div class="peach-blossom" style="bottom: 25%; right: 10%; animation-delay: 6s;"></div>
+        <div class="firecracker" style="top: 30%; left: 50%;">🧨</div>
+        <div class="firecracker" style="top: 60%; left: 50%; animation-delay: 10s;">🎆</div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>🧧 Lì Xì Tết 2026 🧧</h1>
+            <div class="subtitle">Bốc Quẻ Kinh Dịch - An Khang Thịnh Vượng</div>
+        </div>
+
+        <div class="input-section" id="inputSection">
+            <div class="input-group">
+                <label>👤 Tên của bạn:</label>
+                <input type="text" id="userName" placeholder="Nhập tên của bạn...">
+            </div>
+            <div class="input-group">
+                <label>🌟 Điều bạn mong ước (không bắt buộc):</label>
+                <input type="text" id="userWish" placeholder="Nhập điều bạn mong muốn...">
+            </div>
+        </div>
+
+        <div class="mic-section">
+            <p style="color: #ff0000; font-weight: bold; margin-bottom: 10px;">
+                🎤 Thổi vào mic trong 5 giây để tăng may mắn!
+            </p>
+            <button class="mic-button" id="micButton">🎤</button>
+            <div class="blow-meter">
+                <div class="blow-level" id="blowLevel"></div>
+            </div>
+            <p id="blowStatus" style="color: #666; margin-top: 10px;">Nhấn nút mic để bắt đầu</p>
+        </div>
+
+        <div class="envelope-container" id="envelopeContainer">
+            <div class="envelope" id="envelope">
+                <div class="envelope-flap"></div>
+                <div class="envelope-decoration">福</div>
+            </div>
+        </div>
+
+        <div class="result-section hidden" id="resultSection">
+            <h2 style="text-align: center; color: #ff0000; margin-bottom: 20px;">
+                🎉 Chúc Mừng <span id="displayName"></span>! 🎉
+            </h2>
+            <div class="money-amount" id="moneyAmount"></div>
+            
+            <div class="hexagram-section">
+                <div class="hexagram-name" id="hexagramName"></div>
+                <div class="hexagram-lines" id="hexagramLines"></div>
+                <div class="hexagram-meaning" id="hexagramMeaning"></div>
+            </div>
+
+            <button class="reset-button" onclick="resetGame()">🧧 Lì Xì Lại</button>
+        </div>
+    </div>
+
+    <script>
+        // 64 Quẻ Kinh Dịch
+        const hexagrams = [
+            {name: "Càn ䷀", lines: [1,1,1,1,1,1], meaning: "Quẻ Càn - Trời. Biểu tượng cho sự mạnh mẽ, sáng tạo và tiến triển. Đây là thời điểm tốt để bắt đầu những kế hoạch lớn. Hãy kiên trì và tự tin vào khả năng của mình."},
+            {name: "Khôn ䷁", lines: [0,0,0,0,0,0], meaning: "Quẻ Khôn - Đất. Biểu tượng cho sự hiền từ, nhẫn nại và nuôi dưỡng. Hãy khiêm nhường, chấp nhận và học hỏi từ mọi người xung quanh. Thành công đến từ sự kiên nhẫn."},
+            {name: "Truân ䷂", lines: [0,1,0,0,0,1], meaning: "Quẻ Truân - Khó khăn ban đầu. Mọi khởi đầu đều gặp chướng ngại, nhưng đừng nản lòng. Hãy kiên trì vượt qua và thành công sẽ đến."},
+            {name: "Mông ䷃", lines: [1,0,0,0,1,0], meaning: "Quẻ Mông - Tuổi trẻ non nớt. Đây là thời kỳ học hỏi và trưởng thành. Hãy khiêm tốn cầu thị và không ngừng trau dồi bản thân."},
+            {name: "Nhu ䷄", lines: [0,1,0,1,1,1], meaning: "Quẻ Nhu - Chờ đợi. Đừng vội vàng, hãy kiên nhẫn chờ thời cơ thuận lợi. Chuẩn bị kỹ càng và thời điểm tốt sẽ đến."},
+            {name: "Tụng ䷅", lines: [1,1,1,0,1,0], meaning: "Quẻ Tụng - Tranh chấp. Tránh xung đột và tranh cãi không cần thiết. Hãy tìm cách hòa giải và giải quyết vấn đề một cách hòa bình."},
+            {name: "Sư ䷆", lines: [0,0,0,0,1,0], meaning: "Quẻ Sư - Quân đội. Cần có kỷ luật và tổ chức tốt. Lãnh đạo với trí tuệ và nhân đức sẽ đạt được thắng lợi."},
+            {name: "Tỷ ䷇", lines: [0,1,0,0,0,0], meaning: "Quẻ Tỷ - Đoàn kết. Sức mạnh đến từ sự hợp tác. Hãy xây dựng mối quan hệ tốt và cùng nhau tiến bước."},
+            {name: "Tiểu Súc ䷈", lines: [1,1,1,0,1,1], meaning: "Quẻ Tiểu Súc - Nuôi dưỡng nhỏ. Tích lũy từng chút một, chuẩn bị cho tương lai. Thành công lớn bắt đầu từ những bước nhỏ."},
+            {name: "Lý ䷉", lines: [1,1,0,1,1,1], meaning: "Quẻ Lý - Bước đi cẩn thận. Hãy thận trọng trong mọi quyết định. Lịch thiệp và khiêm tốn sẽ mang lại may mắn."},
+            {name: "Thái ䷊", lines: [0,0,0,1,1,1], meaning: "Quẻ Thái - Thông suốt. Thời kỳ thịnh vượng và hòa hợp. Mọi việc đều thuận lợi, hãy tận dụng cơ hội này."},
+            {name: "Bĩ ䷋", lines: [1,1,1,0,0,0], meaning: "Quẻ Bĩ - Tắc nghẽn. Gặp khó khăn tạm thời. Hãy kiên nhẫn và giữ vững niềm tin, khó khăn sẽ qua."},
+            {name: "Đồng Nhân ䷌", lines: [1,1,1,1,0,1], meaning: "Quẻ Đồng Nhân - Cộng đồng. Sức mạnh của tập thể. Hợp tác và chia sẻ sẽ đưa đến thành công chung."},
+            {name: "Đại Hữu ䷍", lines: [1,0,1,1,1,1], meaning: "Quẻ Đại Hữu - Sở hữu lớn. Thời kỳ giàu có và sung túc. Hãy biết chia sẻ và sử dụng của cải một cách có ích."},
+            {name: "Khiêm ䷎", lines: [0,0,1,0,0,0], meaning: "Quẻ Khiêm - Khiêm tốn. Đức tính quý giá mang lại may mắn. Hãy khiêm nhường và tôn trọng người khác."},
+            {name: "Dự ䷏", lines: [0,0,0,1,0,0], meaning: "Quẻ Dự - Vui vẻ. Niềm vui và hài lòng. Hãy tận hưởng những điều tốt đẹp nhưng đừng quên chuẩn bị cho tương lai."},
+            {name: "Tùy ䷐", lines: [1,0,0,1,1,0], meaning: "Quẻ Tùy - Theo đuổi. Linh hoạt thích nghi với hoàn cảnh. Biết lắng nghe và học hỏi sẽ giúp bạn tiến xa."},
+            {name: "Cổ ䷑", lines: [0,1,1,0,0,1], meaning: "Quẻ Cổ - Sửa chữa. Thời điểm để khắc phục sai lầm và cải thiện. Hãy dũng cảm đối mặt và sửa đổi."},
+            {name: "Lâm ䷒", lines: [0,0,1,1,0,0], meaning: "Quẻ Lâm - Tiếp cận. Cơ hội tốt đang đến gần. Hãy chuẩn bị đón nhận và nắm bắt thời cơ."},
+            {name: "Quan ䷓", lines: [0,0,1,1,0,0], meaning: "Quẻ Quan - Quan sát. Hãy nhìn xa trông rộng và suy ngẫm kỹ lưỡng trước khi hành động."},
+            {name: "Phệ Hạp ䷔", lines: [1,0,0,1,0,1], meaning: "Quẻ Phệ Hạp - Cắn đứt. Quyết đoán xử lý vấn đề. Đôi khi cần hành động mạnh mẽ để giải quyết tình huống."},
+            {name: "Bí ䷕", lines: [1,0,1,0,0,1], meaning: "Quẻ Bí - Trang trí. Vẻ đẹp bên ngoài quan trọng nhưng đừng quên giá trị bên trong mới là chính."},
+            {name: "Bác ䷖", lines: [0,0,0,0,0,1], meaning: "Quẻ Bác - Bóc lột. Thời kỳ suy thoái. Hãy giữ gìn và bảo vệ những gì còn lại, thời điểm tốt sẽ trở lại."},
+            {name: "Phục ䷗", lines: [1,0,0,0,0,0], meaning: "Quẻ Phục - Trở lại. Sau khó khăn là khởi đầu mới. Niềm hy vọng và cơ hội mới đang đến."},
+            {name: "Vô Vọng ䷘", lines: [1,1,1,0,0,1], meaning: "Quẻ Vô Vọng - Không tưởng. Hãy thành thật và đi theo con đường chính đáng. Tránh những ý tưởng viển vông."},
+            {name: "Đại Súc ䷙", lines: [1,0,0,1,1,1], meaning: "Quẻ Đại Súc - Nuôi dưỡng lớn. Tích lũy kiến thức và đức hạnh. Chuẩn bị kỹ càng sẽ mang lại thành công lớn."},
+            {name: "Di ䷚", lines: [1,0,0,0,0,1], meaning: "Quẻ Di - Nuôi dưỡng. Chăm sóc bản thân và người khác. Sức khỏe và tinh thần tốt là nền tảng của thành công."},
+            {name: "Đại Quá ䷛", lines: [0,1,1,1,1,0], meaning: "Quẻ Đại Quá - Quá mức. Tránh thái quá trong mọi việc. Cần cân bằng và điều độ để tránh sai lầm."},
+            {name: "Khảm ䷜", lines: [0,1,0,0,1,0], meaning: "Quẻ Khảm - Nước, hiểm nguy. Gặp thử thách khó khăn. Hãy giữ vững tinh thần và vượt qua từng bước một."},
+            {name: "Ly ䷝", lines: [1,0,1,1,0,1], meaning: "Quẻ Ly - Lửa, rực rỡ. Ánh sáng và sự rõ ràng. Thời điểm tốt để thể hiện tài năng và tỏa sáng."},
+            {name: "Hàm ䷞", lines: [0,0,1,1,1,0], meaning: "Quẻ Hàm - Cảm ứng. Sự kết nối và thu hút. Mối quan hệ tốt đẹp đang hình thành, hãy trân trọng."},
+            {name: "Hằng ䷟", lines: [0,1,1,1,0,0], meaning: "Quẻ Hằng - Bền vững. Kiên trì và nhất quán. Thành công đến từ sự kiên định lâu dài."},
+            {name: "Độn ䷠", lines: [1,1,1,0,0,1], meaning: "Quẻ Độn - Tránh né. Đôi khi lùi lại là tiến lên. Hãy biết thời điểm nào nên dừng và suy nghĩ lại."},
+            {name: "Đại Tráng ䷡", lines: [1,0,0,1,1,1], meaning: "Quẻ Đại Tráng - Mạnh mẽ. Sức mạnh và năng lượng tràn đầy. Hãy sử dụng sức mạnh một cách khôn ngoan."},
+            {name: "Tấn ䷢", lines: [1,0,1,0,0,0], meaning: "Quẻ Tấn - Tiến bước. Thăng tiến và phát triển. Thời điểm tốt để tiến lên và mở rộng."},
+            {name: "Minh Di ䷣", lines: [0,0,0,1,0,1], meaning: "Quẻ Minh Di - Ánh sáng tổn thương. Gặp khó khăn nhưng hãy giữ vững tinh thần. Ánh sáng sẽ trở lại."},
+            {name: "Gia Nhân ䷤", lines: [1,0,1,0,1,1], meaning: "Quẻ Gia Nhân - Gia đình. Hòa thuận trong gia đình mang lại hạnh phúc. Hãy chăm sóc và gắn kết người thân."},
+            {name: "Khuê ䷥", lines: [1,1,0,1,0,1], meaning: "Quẻ Khuê - Đối lập. Mâu thuẫn và khác biệt. Hãy tìm điểm chung và hòa giải để tiến bước."},
+            {name: "Kiển ䷦", lines: [0,1,0,0,0,1], meaning: "Quẻ Kiển - Khó khăn. Trở ngại trên đường đi. Hãy kiên nhẫn và tìm cách vượt qua từng bước."},
+            {name: "Giải ䷧", lines: [1,0,0,0,1,0], meaning: "Quẻ Giải - Giải thoát. Khó khăn được giải quyết. Thời kỳ thoải mái và nhẹ nhõm đang đến."},
+            {name: "Tổn ䷨", lines: [1,0,0,0,1,1], meaning: "Quẻ Tổn - Giảm bớt. Đơn giản hóa và loại bỏ điều không cần thiết. Ít đôi khi lại là nhiều."},
+            {name: "Ích ䷩", lines: [1,1,0,0,0,1], meaning: "Quẻ Ích - Lợi ích. Thời kỳ phát triển và thu được lợi. Hãy chia sẻ thành quả với mọi người."},
+            {name: "Quải ䷪", lines: [0,1,1,1,1,1], meaning: "Quẻ Quải - Quyết đoán. Thời điểm cần hành động mạnh mẽ. Hãy quyết đoán nhưng công bằng."},
+            {name: "Cấu ䷫", lines: [1,1,1,1,1,0], meaning: "Quẻ Cấu - Gặp gỡ. Cơ hội và sự kiện bất ngờ. Hãy cẩn trọng trong những mối quan hệ mới."},
+            {name: "Tụy ䷬", lines: [0,0,0,1,1,0], meaning: "Quẻ Tụy - Tập hợp. Sức mạnh của đoàn kết. Cùng nhau tạo nên sức mạnh lớn."},
+            {name: "Thăng ䷭", lines: [0,1,1,0,0,0], meaning: "Quẻ Thăng - Thăng tiến. Phát triển và tiến bộ vững chắc. Hãy tiếp tục nỗ lực và tiến lên."},
+            {name: "Khốn ䷮", lines: [0,1,0,1,1,0], meaning: "Quẻ Khốn - Khốn khó. Gặp nghịch cảnh. Hãy giữ vững niềm tin và chờ thời cơ thay đổi."},
+            {name: "Tỉnh ䷯", lines: [0,1,1,0,1,0], meaning: "Quẻ Tỉnh - Giếng nước. Nguồn tài nguyên không cạn. Hãy khai thác và sử dụng khôn ngoan."},
+            {name: "Cách ䷰", lines: [1,0,1,1,1,0], meaning: "Quẻ Cách - Cải cách. Thay đổi và đổi mới. Thời điểm thích hợp để thay đổi và cải tiến."},
+            {name: "Đỉnh ䷱", lines: [0,1,1,1,0,1], meaning: "Quẻ Đỉnh - Đỉnh cao. Thành tựu và vinh quang. Hãy giữ vững và phát huy thành quả."},
+            {name: "Chấn ䷲", lines: [0,0,1,0,0,1], meaning: "Quẻ Chấn - Sấm sét. Chấn động và thay đổi đột ngột. Hãy bình tĩnh đối phó với biến cố."},
+            {name: "Cấn ䷳", lines: [1,0,0,1,0,0], meaning: "Quẻ Cấn - Núi, dừng lại. Biết dừng lại đúng lúc. Đôi khi ngừng lại để suy ngẫm là khôn ngoan."},
+            {name: "Tiệm ䷴", lines: [0,0,1,0,1,1], meaning: "Quẻ Tiệm - Tiến dần. Phát triển từ từ nhưng bền vững. Đừng vội vàng, hãy đi từng bước vững chắc."},
+            {name: "Quy Muội ䷵", lines: [1,1,0,1,0,0], meaning: "Quẻ Quy Muội - Con gái xuất giá. Khởi đầu mới trong cuộc sống. Hãy chuẩn bị kỹ càng cho giai đoạn mới."},
+            {name: "Phong ䷶", lines: [0,0,1,1,0,1], meaning: "Quẻ Phong - Dồi dào. Thời kỳ sung túc và phát triển. Hãy tận dụng cơ hội này để phát triển."},
+            {name: "Lữ ䷷", lines: [1,0,1,1,0,0], meaning: "Quẻ Lữ - Du hành. Hành trình và khám phá. Hãy cẩn trọng và linh hoạt trong hành trình."},
+            {name: "Tốn ䷸", lines: [0,1,1,0,1,1], meaning: "Quẻ Tốn - Gió, khiêm tốn. Nhẹ nhàng nhưng kiên định. Khiêm tốn và kiên nhẫn sẽ thành công."},
+            {name: "Đoài ䷹", lines: [1,1,0,1,1,0], meaning: "Quẻ Đoài - Hồ, vui vẻ. Niềm vui và giao tiếp. Hãy chia sẻ niềm vui và xây dựng mối quan hệ tốt."},
+            {name: "Hoán ䷺", lines: [0,1,0,0,1,1], meaning: "Quẻ Hoán - Phân tán. Giải tán và tái tổ chức. Thời điểm để thay đổi cấu trúc và cải thiện."},
+            {name: "Tiết ䷻", lines: [1,1,0,0,1,0], meaning: "Quẻ Tiết - Tiết chế. Kỷ luật và điều độ. Biết giới hạn sẽ mang lại thành công bền vững."},
+            {name: "Trung Phu ䷼", lines: [1,1,0,0,1,1], meaning: "Quẻ Trung Phu - Chân thành. Lòng thành và tin tưởng. Hãy chân thành trong mọi việc."},
+            {name: "Tiểu Quá ䷽", lines: [0,0,1,1,0,0], meaning: "Quẻ Tiểu Quá - Vượt quá nhỏ. Cẩn trọng trong những việc nhỏ. Chi tiết nhỏ cũng quan trọng."},
+            {name: "Ký Tế ䷾", lines: [0,1,0,1,0,1], meaning: "Quẻ Ký Tế - Đã hoàn thành. Hoàn tất và viên mãn. Hãy bảo trì và giữ gìn thành quả."},
+            {name: "Vị Tế ䷿", lines: [1,0,1,0,1,0], meaning: "Quẻ Vị Tế - Chưa hoàn thành. Công việc còn dang dở. Hãy kiên trì để hoàn thành mục tiêu."}
+        ];
+
+        // Game state
+        let blowPower = 0;
+        let isBlowing = false;
+        let audioContext;
+        let analyser;
+        let microphone;
+        let blowTimer;
+        let blowDuration = 0;
+
+        // Setup mic button
+        document.getElementById('micButton').addEventListener('click', toggleBlow);
+
+        // Setup envelope click
+        document.getElementById('envelopeContainer').addEventListener('click', openEnvelope);
+
+        async function toggleBlow() {
+            const micButton = document.getElementById('micButton');
+            const blowStatus = document.getElementById('blowStatus');
+
+            if (!isBlowing) {
+                try {
+                    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    analyser = audioContext.createAnalyser();
+                    microphone = audioContext.createMediaStreamSource(stream);
+                    microphone.connect(analyser);
+                    analyser.fftSize = 256;
+
+                    isBlowing = true;
+                    blowDuration = 0;
+                    micButton.classList.add('active');
+                    blowStatus.textContent = 'Đang thổi... Thổi mạnh lên! 💨';
+
+                    detectBlow();
+
+                    // Auto stop after 5 seconds
+                    blowTimer = setTimeout(() => {
+                        stopBlow();
+                    }, 5000);
+
+                } catch (error) {
+                    alert('Không thể truy cập microphone. Vui lòng cho phép quyền truy cập mic.');
+                }
+            } else {
+                stopBlow();
+            }
+        }
+
+        function detectBlow() {
+            if (!isBlowing) return;
+
+            const bufferLength = analyser.frequencyBinCount;
+            const dataArray = new Uint8Array(bufferLength);
+            analyser.getByteFrequencyData(dataArray);
+
+            let sum = 0;
+            for (let i = 0; i < bufferLength; i++) {
+                sum += dataArray[i];
+            }
+            const average = sum / bufferLength;
+
+            // Increase blow power based on volume
+            if (average > 30) {
+                blowPower = Math.min(100, blowPower + (average / 15));
+                blowDuration += 0.1;
+            }
+
+            document.getElementById('blowLevel').style.width = blowPower + '%';
+
+            requestAnimationFrame(detectBlow);
+        }
+
+        function stopBlow() {
+            if (isBlowing) {
+                isBlowing = false;
+                clearTimeout(blowTimer);
+                
+                if (microphone) {
+                    microphone.disconnect();
+                    microphone.mediaStream.getTracks().forEach(track => track.stop());
+                }
+                if (audioContext) {
+                    audioContext.close();
+                }
+
+                document.getElementById('micButton').classList.remove('active');
+                document.getElementById('blowStatus').textContent = 
+                    `Sức thổi: ${Math.round(blowPower)}% 🌬️ Nhấn phong bì để nhận lì xì!`;
+            }
+        }
+
+        function openEnvelope() {
+            const userName = document.getElementById('userName').value.trim();
+            if (!userName) {
+                alert('Vui lòng nhập tên của bạn!');
+                return;
+            }
+
+            // Stop blowing if still active
+            if (isBlowing) {
+                stopBlow();
+            }
+
+            // Animate envelope opening
+            document.getElementById('envelope').classList.add('opening');
+
+            // Create confetti
+            createConfetti();
+
+            // Calculate money based on blow power
+            setTimeout(() => {
+                const moneyAmount = calculateMoney();
+                const hexagram = getRandomHexagram();
+
+                displayResult(userName, moneyAmount, hexagram);
+            }, 800);
+        }
+
+        function calculateMoney() {
+            // Base probabilities
+            let amounts = [
+                {value: 20000, weight: 10},
+                {value: 30000, weight: 10},
+                {value: 50000, weight: 10},
+                {value: 100000, weight: 10},
+                {value: 200000, weight: 8}
+            ];
+
+            // Increase probability of higher amounts based on blow power
+            const powerBonus = blowPower / 20; // Max 5x bonus at 100% power
+            amounts[3].weight += powerBonus * 2; // 100k
+            amounts[4].weight += powerBonus * 3; // 200k
+
+            // Random selection based on weights
+            const totalWeight = amounts.reduce((sum, item) => sum + item.weight, 0);
+            let random = Math.random() * totalWeight;
+
+            for (let amount of amounts) {
+                random -= amount.weight;
+                if (random <= 0) {
+                    return amount.value;
+                }
+            }
+
+            return amounts[0].value;
+        }
+
+        function getRandomHexagram() {
+            return hexagrams[Math.floor(Math.random() * hexagrams.length)];
+        }
+
+        function displayResult(userName, money, hexagram) {
+            document.getElementById('displayName').textContent = userName;
+            document.getElementById('moneyAmount').textContent = 
+                money.toLocaleString('vi-VN') + ' đ';
+
+            // Display hexagram
+            document.getElementById('hexagramName').textContent = hexagram.name;
+            
+            const hexagramLines = document.getElementById('hexagramLines');
+            hexagramLines.innerHTML = '';
+            hexagram.lines.reverse().forEach(line => {
+                const lineDiv = document.createElement('div');
+                lineDiv.className = 'hexagram-line' + (line === 0 ? ' broken' : '');
+                hexagramLines.appendChild(lineDiv);
+            });
+
+            document.getElementById('hexagramMeaning').textContent = hexagram.meaning;
+
+            // Show result section
+            document.getElementById('inputSection').classList.add('hidden');
+            document.getElementById('envelopeContainer').classList.add('hidden');
+            document.querySelector('.mic-section').classList.add('hidden');
+            document.getElementById('resultSection').classList.remove('hidden');
+        }
+
+        function createConfetti() {
+            const colors = ['#ffd700', '#ff0000', '#ff69b4', '#00ff00', '#00bfff'];
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                    document.body.appendChild(confetti);
+
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 30);
+            }
+        }
+
+        function resetGame() {
+            blowPower = 0;
+            blowDuration = 0;
+            document.getElementById('blowLevel').style.width = '0%';
+            document.getElementById('blowStatus').textContent = 'Nhấn nút mic để bắt đầu';
+            document.getElementById('envelope').classList.remove('opening');
+            
+            document.getElementById('inputSection').classList.remove('hidden');
+            document.getElementById('envelopeContainer').classList.remove('hidden');
+            document.querySelector('.mic-section').classList.remove('hidden');
+            document.getElementById('resultSection').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
